@@ -3,6 +3,10 @@ import { extractDeckText } from "@/lib/pdf";
 import { processInboundApplication } from "@/lib/pipeline";
 import { getSession } from "@/lib/session";
 
+// The scoring pipeline makes several sequential LLM + web calls; give it room
+// beyond the platform default so it doesn't get killed mid-run.
+export const maxDuration = 60;
+
 // Minimum bar per the brief: deck + company name. Founder identity comes from the
 // session, not the form, so the application is bound to the signed-in founder.
 //
@@ -17,6 +21,15 @@ export async function POST(req) {
     return NextResponse.json({ error: "Sign in as a founder to apply." }, { status: 401 });
   }
 
+  try {
+    return await handleApply(req, session);
+  } catch (err) {
+    // Return a real message instead of a bare 500 so failures are diagnosable.
+    return NextResponse.json({ error: `Apply failed: ${err.message}` }, { status: 500 });
+  }
+}
+
+async function handleApply(req, session) {
   const contentType = req.headers.get("content-type") || "";
   let companyName, extra, githubHandle, linkedinUrl, deckBuffer;
 
