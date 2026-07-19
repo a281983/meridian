@@ -1,9 +1,13 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { upload } from "@vercel/blob/client";
+
+const MAX_BYTES = 20 * 1024 * 1024; // 20 MB hard cap
 
 export default function ApplyForm({ applicantName, applicantEmail }) {
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(null);
   const [error, setError] = useState(null);
   const router = useRouter();
 
@@ -12,25 +16,59 @@ export default function ApplyForm({ applicantName, applicantEmail }) {
     setError(null);
 
     const form = new FormData(e.target);
-    // Vercel serverless functions reject request bodies over ~4.5 MB, so catch
-    // an oversized deck client-side with a clear message instead of letting the
-    // platform return a non-JSON "Request Entity Too Large" the form can't parse.
     const deck = form.get("deck");
-    const MAX_BYTES = 4.4 * 1024 * 1024;
+    const companyName = form.get("companyName");
+
     if (deck && deck.size > MAX_BYTES) {
       setError(
-        `That deck is ${(deck.size / 1048576).toFixed(1)} MB — uploads are capped at ~4.5 MB. Please compress the PDF or export a lighter version and try again.`
+        `That deck is ${(deck.size / 1048576).toFixed(1)} MB — the limit is 20 MB. Please use a smaller PDF.`
       );
       return;
     }
 
     setLoading(true);
     try {
-      const res = await fetch("/api/apply", { method: "POST", body: form });
+      // Preferred path: upload the PDF straight to Blob from the browser. This
+      // bypasses Vercel's ~4.5 MB function-request cap, so decks up to 20 MB work.
+      // If Blob isn't configured (e.g. local dev), fall back to sending the file
+      // through the API for the small-file case.
+      let deckPathname = null;
+      if (deck && deck.size > 0) {
+        try {
+          setStatus("Uploading deck…");
+          const blob = await upload(deck.name, deck, {
+            access: "private",
+            contentType: "application/pdf",
+            handleUploadUrl: "/api/deck-upload",
+          });
+          deckPathname = blob.pathname;
+        } catch {
+          deckPathname = null; // fall back below
+        }
+      }
+
+      setStatus("Reading deck · scoring · verifying claims…");
+      let res;
+      if (deckPathname) {
+        res = await fetch("/api/apply", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            companyName,
+            deckPathname,
+            githubHandle: form.get("githubHandle") || null,
+            linkedinUrl: form.get("linkedinUrl") || null,
+            extra: form.get("extra") || "",
+          }),
+        });
+      } else {
+        res = await fetch("/api/apply", { method: "POST", body: form });
+      }
+
       if (!res.ok) {
         let msg = `Something went wrong (${res.status}).`;
         if (res.status === 413) {
-          msg = "That deck is too large — uploads are capped at ~4.5 MB. Please compress the PDF and try again.";
+          msg = "That deck was too large to send. Please use a PDF under 20 MB.";
         } else {
           try {
             const d = await res.json();
@@ -46,6 +84,7 @@ export default function ApplyForm({ applicantName, applicantEmail }) {
     } catch (err) {
       setError(err.message);
       setLoading(false);
+      setStatus(null);
     }
   }
 
@@ -72,7 +111,7 @@ export default function ApplyForm({ applicantName, applicantEmail }) {
           required
           className="w-full text-sm text-[var(--muted)] file:mr-3 file:rounded-lg file:border-0 file:bg-[var(--surface-2)] file:px-3 file:py-2 file:text-[var(--text)] file:text-sm"
         />
-        <p className="text-xs text-[var(--faint)] mt-1.5">Deck + company name is all we need. Everything below is optional.</p>
+        <p className="text-xs text-[var(--faint)] mt-1.5">Deck + company name is all we need (PDF up to 20 MB). Everything below is optional.</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -94,7 +133,7 @@ export default function ApplyForm({ applicantName, applicantEmail }) {
       {error && <p className="text-sm text-[var(--neg)]">{error}</p>}
 
       <button disabled={loading} className="btn-primary w-full py-3 text-sm disabled:opacity-60">
-        {loading ? "Reading deck · scoring · verifying claims…" : "Submit application"}
+        {loading ? status || "Submitting…" : "Submit application"}
       </button>
     </form>
   );
