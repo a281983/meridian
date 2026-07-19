@@ -406,7 +406,103 @@
       "githubSignal": null,
       "updatedAt": "2026-07-19T11:25:31.706Z"
     },
-    "memo": null,
+    "memo": {
+      "companyName": "Loomwork",
+      "generatedAt": "2026-07-19T14:11:49.927Z",
+      "sections": [
+        {
+          "id": "snapshot",
+          "title": "Company snapshot",
+          "required": true,
+          "content": "Loomwork operates in a substantial market with 1.5 million freelance designers in the US, contributing to a broader $8 billion creative-ops tooling market. Freelancers face a critical challenge, losing approximately 8 hours per week due to miscommunication while parsing vague feedback across various channels like email, Slack, and Figma comments, which is the leading cause of scope creep and unpaid revisions. Loomwork addresses this urgent problem by ingesting feedback from all channels, clustering it by deliverable, flagging contradictions, and drafting clarifying replies, thereby streamlining communication and enhancing productivity for freelancers.",
+          "flagged_missing": null
+        },
+        {
+          "id": "hypotheses",
+          "title": "Investment hypotheses",
+          "required": true,
+          "content": "- Team Quality: The founder, Maya Chen, has relevant experience as an ex-design lead at a Series B startup, but is a first-time founder, which introduces some risk. Confidence in the founder's potential is rated at 60%.\n- Market Wedge: The target market consists of 1.5 million freelance designers in the US, within a broader $8 billion creative-ops tooling market, indicating a substantial opportunity.\n- Stickiness/Retention Mechanics: The solution addresses a critical pain point for freelancers by streamlining feedback management, which could enhance user retention by reducing miscommunication.\n- Traction Signal: Currently, Loomwork has 40 beta users and a 60% weekly active rate, suggesting initial engagement, although there is no revenue yet.\n- Defensibility: The unique approach of clustering feedback and flagging contradictions may provide a competitive edge, although competition details are not disclosed.\n- Expansion Path: The broad market size and specific focus on freelancers suggest potential for expansion into related creative-ops tools and services.",
+          "flagged_missing": null
+        },
+        {
+          "id": "swot",
+          "title": "SWOT",
+          "required": true,
+          "content": "strengths:   - Addresses a significant pain point for freelancers by streamlining feedback management.\n  - Unique solution that clusters feedback and flags contradictions, potentially reducing miscommunication.\nweaknesses:   - First-time founder with no proven track record.\n  - Currently has no revenue and is in the early stages of product launch (launched 3 weeks ago).\nopportunities:   - Large target market of 1.5M freelance designers in the US within an $8B creative-ops tooling market.\n  - Potential for growth as the product gains traction and user feedback is incorporated.\nrisks:   - High competition in the creative-ops tooling market, though specific competitors are not identified.\n  - Unverifiable traction claims, including beta user count and engagement metrics.",
+          "flagged_missing": null
+        },
+        {
+          "id": "problem_product",
+          "title": "Problem & product",
+          "required": true,
+          "content": "Freelancers face a significant challenge in managing feedback, losing approximately 8 hours per week due to vague communication across various platforms like email, Slack, and Figma comments. This miscommunication is identified as the primary cause of scope creep and unpaid revisions. \n\nLoomwork addresses this issue by ingesting feedback from all communication channels, clustering it by deliverable, and flagging contradictions in the feedback (e.g., requests to 'make it bigger' versus 'keep it minimal'). Additionally, it drafts clarifying replies to streamline the communication process.",
+          "flagged_missing": null
+        },
+        {
+          "id": "traction",
+          "title": "Traction & KPIs",
+          "required": true,
+          "content": "Loomwork has 40 beta users and has launched just 3 weeks ago. Currently, the company has no revenue. Usage metrics indicate that 60% of users are active weekly. There are no disclosed unit economics such as Customer Acquisition Cost (CAC), sales cycle, or churn rate.",
+          "flagged_missing": "ARR/revenue, growth trajectory, unit economics (CAC, sales cycle, churn), detailed usage metrics"
+        },
+        {
+          "id": "team_history",
+          "title": "Team & history",
+          "required": false,
+          "content": "founder_background: Maya Chen is the founder and has a background as an ex-design lead at a Series B startup. She is a first-time founder.\nexec_pedigree: Maya's experience as a design lead provides relevant industry knowledge, although she lacks prior founding experience.\nred_flags: The founder is a first-time entrepreneur, which may raise concerns about execution risk. However, her background in design could be beneficial for the product's development.\ncompany_timeline:   launched: 3 weeks ago\n  beta_users: 40 beta users currently engaged",
+          "flagged_missing": null
+        },
+        {
+          "id": "tech_defensibility",
+          "title": "Technology & defensibility",
+          "required": false,
+          "content": "Loomwork's technology is designed to address a significant pain point for freelance designers by streamlining feedback management. The proprietary aspect lies in its ability to ingest feedback from multiple channels (email, Slack, Figma comments), cluster it by deliverable, and identify contradictions in feedback. This unique approach reduces miscommunication, which is a major issue in the freelance design space. \n\nThe data moat is built around the aggregation of feedback data from various sources, which can enhance the platform's learning capabilities over time. As more users engage with Loomwork, the system can improve its feedback clustering and contradiction detection, leading to a compounding advantage as the dataset grows. \n\nHowever, the technology's defensibility may be challenged by the commoditization of similar feedback management tools, especially if competitors can replicate the core functionalities without significant barriers. The current lack of revenue and established market presence means that Loomwork's long-term defensibility will depend on its ability to scale and maintain a unique value proposition in a competitive landscape.",
+          "flagged_missing": null
+        },
+        {
+          "id": "market_sizing",
+          "title": "Market sizing",
+          "required": false,
+          "content": "Loomwork operates within a substantial market for creative-ops tooling, which is valued at approximately $8 billion. The target audience includes around 1.5 million freelance designers in the US. However, specific figures for Total Addressable Market (TAM), Serviceable Available Market (SAM), and Serviceable Obtainable Market (SOM) are not disclosed. The assumptions behind these market estimates are also not provided.",
+          "flagged_missing": "TAM, SAM, SOM values and assumptions"
+        },
+        {
+          "id": "competition",
+          "title": "Competition",
+          "required": false,
+          "content": null,
+          "flagged_missing": "Named competitors and their differentiation"
+        },
+        {
+          "id": "financials",
+          "title": "Financials & round structure",
+          "required": false,
+          "content": null,
+          "flagged_missing": "Historical + projected P&L, round size, runway, next-round timing"
+        },
+        {
+          "id": "cap_table",
+          "title": "Cap table",
+          "required": false,
+          "content": null,
+          "flagged_missing": "Cap table details such as pre/post-round ownership, dilution, and VSOP allocation are not disclosed."
+        },
+        {
+          "id": "dd_log",
+          "title": "Due diligence log",
+          "required": false,
+          "content": "Due Diligence Log:\n\n1. **Commercial**: \n   - Market size assessed: 1.5M freelance designers in the US; broader $8B creative-ops tooling market.\n   - Problem identified: Freelancers lose ~8 hours/week due to miscommunication across various channels.\n   - Solution evaluated: Loomwork's approach to ingesting and clarifying feedback.\n\n2. **People**: \n   - Team checked: Single founder, Maya Chen, with relevant experience as a design lead at a Series B startup. First-time founder.\n\n3. **Financial**: \n   - Financials reviewed: No revenue yet; launched 3 weeks ago; 40 beta users with 60% weekly active usage.\n   - Cap table: not disclosed.\n\n4. **Legal**: \n   - Legal checks: Not conducted; no information available.\n\n5. **Technical**: \n   - Technical feasibility: Not assessed; no information available.\n\n**Open Items**:\n- Legal due diligence not performed.\n- Technical feasibility assessment pending.",
+          "flagged_missing": null
+        },
+        {
+          "id": "exit",
+          "title": "Exit perspective",
+          "required": false,
+          "content": "Loomwork operates in a promising market with 1.5 million freelance designers in the US and a broader $8 billion creative-ops tooling market. Given the significant pain point it addresses—miscommunication leading to scope creep and unpaid revisions—there are several plausible exit paths:\n\n1. **Acquisition by Larger SaaS Companies**: Established players in the creative software space may seek to acquire Loomwork to enhance their product offerings and capture a share of the growing freelance market. The unique solution of clustering feedback and drafting clarifying replies could be seen as a valuable addition to existing tools.\n\n2. **Strategic Partnerships**: Collaborations with platforms that cater to freelancers, such as design marketplaces or project management tools, could lead to acquisition discussions as these companies look to integrate Loomwork's capabilities into their ecosystems.\n\n3. **IPO Potential**: If Loomwork successfully scales its user base and monetizes its offering, it could become a candidate for an IPO, especially given the bullish market outlook and the increasing demand for creative-ops solutions.\n\nThese exit paths could command a premium due to Loomwork's innovative approach to a widespread problem, its early traction with beta users, and the substantial market size, which indicates strong growth potential.",
+          "flagged_missing": null
+        }
+      ]
+    },
     "sourceUrl": null,
     "createdAt": "2026-07-19T11:25:33.921Z",
     "updatedAt": "2026-07-19T11:25:33.921Z"

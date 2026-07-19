@@ -8,16 +8,30 @@ import TrustList from "../../components/Trust";
 
 export const dynamic = "force-dynamic";
 
+// Memo is generated lazily on first view. Both the generation (needs
+// OPENAI_API_KEY) and the caching write (needs a writable store — Blob in prod)
+// can fail, and neither should take down the page: the scores, axes, and trust
+// evidence are already stored and worth showing on their own. Degrade instead of
+// crashing.
 async function withMemo(opp) {
   if (opp.memo) return opp;
-  const memo = await generateMemo({
-    companyName: opp.companyName,
-    extracted: opp.extracted,
-    trustScores: opp.trustScores,
-    axisScores: opp.axisScores,
-    founderScore: opp.founderScoreSnapshot,
-  });
-  return upsertRecord("opportunities", { ...opp, memo });
+  try {
+    const memo = await generateMemo({
+      companyName: opp.companyName,
+      extracted: opp.extracted,
+      trustScores: opp.trustScores,
+      axisScores: opp.axisScores,
+      founderScore: opp.founderScoreSnapshot,
+    });
+    try {
+      await upsertRecord("opportunities", { ...opp, memo });
+    } catch {
+      // Read-only FS with no Blob store — serve the fresh memo without caching it.
+    }
+    return { ...opp, memo };
+  } catch {
+    return opp; // Memo unavailable (e.g. no API key) — render everything else.
+  }
 }
 
 export default async function OpportunityPage({ params }) {
@@ -96,27 +110,34 @@ export default async function OpportunityPage({ params }) {
         <h2 className="font-semibold mb-4" style={{ fontFamily: "var(--font-display)" }}>
           Investment Memo
         </h2>
-        <div className="space-y-5">
-          {memo?.sections.map((s) => (
-            <div key={s.id}>
-              <h3 className="text-sm font-semibold flex items-center gap-2">
-                {s.title}
-                {s.required && (
-                  <span className="text-[10px] uppercase tracking-wide text-[var(--faint)] border border-[var(--border)] rounded px-1.5 py-0.5">
-                    required
-                  </span>
+        {memo ? (
+          <div className="space-y-5">
+            {memo.sections.map((s) => (
+              <div key={s.id}>
+                <h3 className="text-sm font-semibold flex items-center gap-2">
+                  {s.title}
+                  {s.required && (
+                    <span className="text-[10px] uppercase tracking-wide text-[var(--faint)] border border-[var(--border)] rounded px-1.5 py-0.5">
+                      required
+                    </span>
+                  )}
+                </h3>
+                {s.content ? (
+                  <p className="text-sm text-[var(--muted)] whitespace-pre-wrap mt-1.5 leading-relaxed">{s.content}</p>
+                ) : (
+                  <p className="text-sm text-[var(--faint)] italic mt-1.5">
+                    Not disclosed / unavailable at this stage{s.flagged_missing ? `: ${s.flagged_missing}` : ""}
+                  </p>
                 )}
-              </h3>
-              {s.content ? (
-                <p className="text-sm text-[var(--muted)] whitespace-pre-wrap mt-1.5 leading-relaxed">{s.content}</p>
-              ) : (
-                <p className="text-sm text-[var(--faint)] italic mt-1.5">
-                  Not disclosed / unavailable at this stage{s.flagged_missing ? `: ${s.flagged_missing}` : ""}
-                </p>
-              )}
-            </div>
-          ))}
-        </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-sm text-[var(--faint)]">
+            Memo not generated yet. Scores and evidence above are live; the full memo drafts on
+            first view once an OpenAI key is configured.
+          </p>
+        )}
       </section>
     </main>
   );
