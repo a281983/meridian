@@ -1,0 +1,53 @@
+[
+  {
+    "id": "torvalds",
+    "name": "Alex Rivera",
+    "email": "alex@demo.com",
+    "githubHandle": "torvalds",
+    "linkedinUrl": null,
+    "founderScore": {
+      "score": 86,
+      "confidence": 87,
+      "basedOn": [
+        "technical_signal",
+        "application_quality"
+      ],
+      "coldStart": false,
+      "githubSignal": {
+        "followers": 312367,
+        "publicRepos": 12,
+        "accountCreatedAt": "2011-09-03T15:26:22Z",
+        "totalStarsAcrossTopRepos": 251610,
+        "mostRecentPush": "2026-07-19T04:17:15Z"
+      },
+      "updatedAt": "2026-07-19T11:23:26.367Z"
+    },
+    "trackRecordScore": null,
+    "pedigreeScore": null,
+    "applications": [
+      "9aa667f0-4475-4b5b-b6c3-fc720f3239ad"
+    ]
+  },
+  {
+    "id": "maya@demo.com",
+    "name": "Maya Chen",
+    "email": "maya@demo.com",
+    "githubHandle": null,
+    "linkedinUrl": null,
+    "founderScore": {
+      "score": 61,
+      "confidence": 37,
+      "basedOn": [
+        "application_quality"
+      ],
+      "coldStart": true,
+      "githubSignal": null,
+      "updatedAt": "2026-07-19T11:25:31.706Z"
+    },
+    "trackRecordScore": null,
+    "pedigreeScore": null,
+    "applications": [
+      "34637a47-ec43-4c0e-b94d-cdfc0102d441"
+    ]
+  }
+]

@@ -1,0 +1,52 @@
+# Investment memo structure — from the brief's Appendix 1. Required sections must
+# always be produced; optional sections are generated only if evidence exists,
+# otherwise explicitly flagged as missing (never fabricated).
+
+required:
+  - id: snapshot
+    title: "Company snapshot"
+    prompt: "One paragraph 'in a nutshell': market size, the structural problem, why it's urgent, and how the product solves it."
+  - id: hypotheses
+    title: "Investment hypotheses"
+    prompt: "Explicit 'why we want to invest' bullets: team quality, market wedge, stickiness/retention mechanics, traction signal, defensibility, expansion path."
+  - id: swot
+    title: "SWOT"
+    prompt: "Strengths, weaknesses, opportunities, risks — each as short, evidence-backed bullets."
+  - id: problem_product
+    title: "Problem & product"
+    prompt: "The core problem(s) in plain language, then the step-by-step product/process solving it."
+  - id: traction
+    title: "Traction & KPIs"
+    prompt: "Customer count, ARR/revenue, growth trajectory, unit economics (CAC, sales cycle, churn), usage metrics."
+
+optional:
+  - id: team_history
+    title: "Team & history"
+    prompt: "Founder background, exec pedigree, why the fund is comfortable with any red flags, company timeline."
+  - id: tech_defensibility
+    title: "Technology & defensibility"
+    prompt: "What's proprietary vs. commoditizable, the data moat, why the advantage compounds."
+  - id: market_sizing
+    title: "Market sizing"
+    prompt: "Top-down and/or bottom-up TAM/SAM/SOM with assumptions stated explicitly."
+  - id: competition
+    title: "Competition"
+    prompt: "Named competitor clusters, how each differs, who could become a threat later."
+  - id: financials
+    title: "Financials & round structure"
+    prompt: "Historical + projected P&L, round size, runway, next-round timing."
+  - id: cap_table
+    title: "Cap table"
+    prompt: "Pre/post-round ownership, dilution, VSOP allocation."
+  - id: dd_log
+    title: "Due diligence log"
+    prompt: "What was checked (commercial, people, financial, legal, technical), what's still open."
+  - id: exit
+    title: "Exit perspective"
+    prompt: "Plausible exit paths and why they'd pay a premium."
+
+missing_data_policy: >
+  If a data point required for a section is missing, unavailable, or intentionally
+  left out, flag it explicitly (e.g. "Cap table: not disclosed") rather than
+  silently omitting or guessing. Never fabricate financials, cap tables, or any
+  internal company data that wasn't provided.

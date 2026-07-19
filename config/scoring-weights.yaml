@@ -1,0 +1,37 @@
+# Scoring weights — edit to retune. The 3 axes are NEVER averaged into one
+# number (per brief); these weights only control sub-signals *within* each axis
+# and within the persistent Founder Score.
+
+# Founder Score (persistent, lives in Memory, cross-application, never resets)
+founder_score:
+  track_record: 0.25       # prior exits/shutdowns, time-in-market
+  technical_signal: 0.20   # GitHub activity: repos, stars, commit recency
+  domain_credibility: 0.15 # papers/patents/hackathon wins
+  public_footprint: 0.15   # LinkedIn/Twitter presence & consistency (Area of Research #3)
+  application_quality: 0.15 # clarity/specificity of their own application, LLM-judged
+  pedigree: 0.10            # university / notable past employer — kept deliberately small
+  # NOTE: no "age" factor — legal exposure with no real predictive payoff, excluded on purpose.
+
+# Cold-start floor: a founder with zero track record / GitHub / network still gets scored
+# on application_quality + public_footprint + domain_credibility alone, re-normalized.
+# This must never resolve to "unscored" or 0 — that recreates the network-gated system
+# the brief exists to replace.
+cold_start_min_signals: 1
+
+# Per-axis screening (Founder / Market / Idea-vs-Market) — NOT averaged together.
+# Each axis is independently rated bullish / neutral / bear + trend (improving/declining/stable).
+axes:
+  founder:
+    description: "Who they are, traits, track record — informed by, but distinct from, the persistent Founder Score."
+  market:
+    description: "Sizing (TAM/SAM/SOM), named competitors, timing/why-now — rated bullish/neutral/bear."
+  idea_vs_market:
+    description: "Does the idea survive scrutiny as-is, or is the team strong enough to pivot? Problem urgency/size/no-alternative, solution novelty, barrier to entry, defensibility."
+
+# Trust Score is PER-CLAIM, not per-company. Confidence buckets used when tagging each
+# extracted claim (traction, revenue, team background, market size, etc.)
+trust_confidence_levels:
+  - "verified"     # corroborated by an independent external source (e.g. Tavily search)
+  - "plausible"    # internally consistent, not independently verified
+  - "unverifiable" # no way to check with available sources
+  - "contradicted" # conflicts with another claim or external source — always surfaced to investor

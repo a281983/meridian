@@ -1,0 +1,414 @@
+[
+  {
+    "id": "9aa667f0-4475-4b5b-b6c3-fc720f3239ad",
+    "source": "inbound",
+    "channel": null,
+    "companyName": "Nimbus AI",
+    "founderId": "torvalds",
+    "ownerEmail": "alex@demo.com",
+    "status": "screened",
+    "extracted": {
+      "snapshot": {
+        "market": "$2.1B TAM for logistics finance automation",
+        "problem": "Freight invoices are inconsistent across hundreds of carrier formats. Finance teams either overpay or spend weeks disputing charges. No existing tool understands carrier contract terms well enough to fully automate the match.",
+        "urgency": "Freight invoice errors cost US shippers an estimated $15B/year.",
+        "solution": "Nimbus ingests carrier invoices and contracts, extracts line items with an LLM pipeline, and flags discrepancies automatically inside a review dashboard, with one-click dispute letters generated for the shipper's ops team."
+      },
+      "team": {
+        "founders": [
+          {
+            "name": "Priya Shah",
+            "background": "ex-Flexport, led invoice automation team"
+          },
+          {
+            "name": "Sam Okafor",
+            "background": "ex-Uber Freight, ML engineer"
+          }
+        ],
+        "single_founder": false
+      },
+      "market_sizing": {
+        "tam": "$2.1B",
+        "sam": "$400M",
+        "som": null,
+        "assumptions": null
+      },
+      "competition": [
+        {
+          "name": "nuVizz",
+          "differentiation": "manual BPO"
+        },
+        {
+          "name": "Denim",
+          "differentiation": "manual BPO"
+        },
+        {
+          "name": "Loadsure",
+          "differentiation": "focus on visibility, not invoice auditing specifically"
+        },
+        {
+          "name": "FreightVerify",
+          "differentiation": "focus on visibility, not invoice auditing specifically"
+        }
+      ],
+      "traction": {
+        "customers": "14 paying pilot customers",
+        "revenue": "$18k MRR",
+        "growth": "22% month-over-month growth over the last 4 months",
+        "usage_metrics": "Average customer saves 6 hours/week per invoice auditor. Churn so far: 0."
+      },
+      "financials_mentioned": true,
+      "cap_table_mentioned": false,
+      "claims": [
+        {
+          "id": "1",
+          "category": "traction",
+          "text": "14 paying pilot customers"
+        },
+        {
+          "id": "2",
+          "category": "revenue",
+          "text": "$18k MRR"
+        },
+        {
+          "id": "3",
+          "category": "growth",
+          "text": "22% month-over-month growth over the last 4 months"
+        },
+        {
+          "id": "4",
+          "category": "usage_metrics",
+          "text": "Average customer saves 6 hours/week per invoice auditor"
+        },
+        {
+          "id": "5",
+          "category": "other",
+          "text": "Churn so far: 0"
+        }
+      ]
+    },
+    "trustScores": [
+      {
+        "id": "1",
+        "category": "traction",
+        "text": "14 paying pilot customers",
+        "confidence": "unverifiable",
+        "evidence": "no external source found",
+        "sourceUrl": null
+      },
+      {
+        "id": "2",
+        "category": "revenue",
+        "text": "$18k MRR",
+        "confidence": "unverifiable",
+        "evidence": "no external source found",
+        "sourceUrl": null
+      },
+      {
+        "id": "3",
+        "category": "growth",
+        "text": "22% month-over-month growth over the last 4 months",
+        "confidence": "unverifiable",
+        "evidence": "no external source found",
+        "sourceUrl": null
+      },
+      {
+        "id": "4",
+        "category": "usage_metrics",
+        "text": "Average customer saves 6 hours/week per invoice auditor",
+        "confidence": "plausible",
+        "evidence": "AI saves small business leaders 6 to 10 hours a week, indicating potential time savings related to invoice auditing.",
+        "sourceUrl": "https://tech.co/news/ai-small-business-leaders-time-savings"
+      },
+      {
+        "id": "5",
+        "category": "other",
+        "text": "Churn so far: 0",
+        "confidence": "unverifiable",
+        "evidence": "no external source found",
+        "sourceUrl": null
+      }
+    ],
+    "axisScores": {
+      "founder": {
+        "rating": "bullish",
+        "trend": "improving",
+        "rationale": "The founders have relevant experience in logistics and ML, and the persistent founder score is high, indicating strong technical capability and application quality.",
+        "confidence": 87
+      },
+      "market": {
+        "rating": "bullish",
+        "trend": "stable",
+        "rationale": "The market has a significant TAM of $2.1B and a clear problem with high urgency, supported by the estimated $15B/year cost of freight invoice errors.",
+        "confidence": 80
+      },
+      "idea_vs_market": {
+        "rating": "bullish",
+        "trend": "improving",
+        "rationale": "The solution addresses a critical pain point in logistics finance with a unique approach using LLMs, and early traction with 14 paying customers and 22% month-over-month growth is promising.",
+        "confidence": 85
+      }
+    },
+    "founderScoreSnapshot": {
+      "score": 86,
+      "confidence": 87,
+      "basedOn": [
+        "technical_signal",
+        "application_quality"
+      ],
+      "coldStart": false,
+      "githubSignal": {
+        "followers": 312367,
+        "publicRepos": 12,
+        "accountCreatedAt": "2011-09-03T15:26:22Z",
+        "totalStarsAcrossTopRepos": 251610,
+        "mostRecentPush": "2026-07-19T04:17:15Z"
+      },
+      "updatedAt": "2026-07-19T11:23:26.367Z"
+    },
+    "memo": {
+      "companyName": "Nimbus AI",
+      "generatedAt": "2026-07-19T11:23:55.160Z",
+      "sections": [
+        {
+          "id": "snapshot",
+          "title": "Company snapshot",
+          "required": true,
+          "content": "Nimbus AI operates in a $2.1B total addressable market (TAM) for logistics finance automation, addressing a critical issue where inconsistent freight invoices across numerous carrier formats lead to significant overpayments and lengthy disputes. This problem is urgent, as freight invoice errors cost US shippers an estimated $15B annually. Nimbus AI's solution leverages a large language model (LLM) pipeline to ingest carrier invoices and contracts, automatically extracting line items and flagging discrepancies within a review dashboard, while also generating one-click dispute letters for the operations team. This innovative approach aims to streamline the invoice auditing process and reduce the time spent by finance teams.",
+          "flagged_missing": null
+        },
+        {
+          "id": "hypotheses",
+          "title": "Investment hypotheses",
+          "required": true,
+          "content": "- **Team Quality**: Founders Priya Shah and Sam Okafor have relevant backgrounds in logistics and machine learning, with experience from Flexport and Uber Freight, respectively. This strong technical capability enhances confidence in execution.\n- **Market Wedge**: The logistics finance automation market has a $2.1B total addressable market (TAM) with a significant pain point—freight invoice errors costing US shippers an estimated $15B/year. This indicates a high urgency for solutions.\n- **Stickiness/Retention Mechanics**: With an average customer saving 6 hours per week per invoice auditor and a reported churn rate of 0, the solution appears to foster strong retention.\n- **Traction Signal**: Nimbus has 14 paying pilot customers and is generating $18k in monthly recurring revenue (MRR), with a notable growth rate of 22% month-over-month over the last 4 months.\n- **Defensibility**: The use of a unique LLM pipeline to automate invoice matching and dispute generation differentiates Nimbus from competitors, who primarily focus on manual processes or visibility rather than invoice auditing.\n- **Expansion Path**: The solution's ability to integrate with various carrier formats and automate complex processes suggests potential for expansion into broader logistics and finance automation applications.",
+          "flagged_missing": null
+        },
+        {
+          "id": "swot",
+          "title": "SWOT",
+          "required": true,
+          "content": "Strengths:   - Strong founding team with relevant experience in logistics and machine learning (Priya Shah from Flexport, Sam Okafor from Uber Freight).\n  - Unique solution using LLMs to automate freight invoice auditing, addressing a critical pain point.\n  - Early traction with 14 paying pilot customers and 22% month-over-month growth.\nWeaknesses:   - Revenue currently at $18k MRR, indicating a need for scaling.\n  - Churn rate is unverified, which could pose a risk if customer retention is not maintained.\nOpportunities:   - Large total addressable market (TAM) of $2.1B for logistics finance automation.\n  - Potential to capture a significant share of the $15B/year cost incurred by US shippers due to freight invoice errors.\nRisks:   - Competition from existing players like nuVizz and Denim, which focus on manual BPO.\n  - Dependence on the accuracy of LLMs for invoice auditing, which may face challenges in complex scenarios.",
+          "flagged_missing": null
+        },
+        {
+          "id": "problem_product",
+          "title": "Problem & product",
+          "required": true,
+          "content": "Freight invoices are inconsistent across hundreds of carrier formats, leading finance teams to either overpay or spend weeks disputing charges. This issue results in an estimated $15 billion per year in costs for US shippers due to freight invoice errors. Nimbus AI addresses this problem by ingesting carrier invoices and contracts, extracting line items using a large language model (LLM) pipeline, and automatically flagging discrepancies within a review dashboard. Additionally, it generates one-click dispute letters for the shipper's operations team, streamlining the dispute process.",
+          "flagged_missing": null
+        },
+        {
+          "id": "traction",
+          "title": "Traction & KPIs",
+          "required": true,
+          "content": "customer_count: 14\nARR: 216000\ngrowth_trajectory: 22% month-over-month growth over the last 4 months\nunit_economics:   CAC: \n  sales_cycle: \n  churn: 0\nusage_metrics:   time_saved_per_customer: 6 hours/week per invoice auditor",
+          "flagged_missing": "CAC, sales cycle"
+        },
+        {
+          "id": "team_history",
+          "title": "Team & history",
+          "required": false,
+          "content": "Nimbus AI was co-founded by Priya Shah and Sam Okafor. Priya has a background in logistics, having led the invoice automation team at Flexport, while Sam brings expertise as a machine learning engineer from his time at Uber Freight. The team is not a single founder, which can provide a broader range of skills and perspectives.\n\nThe company addresses a significant issue in logistics finance, with freight invoice errors costing US shippers an estimated $15 billion annually. Nimbus AI's solution automates the processing of freight invoices, leveraging a large language model (LLM) pipeline to extract line items and flag discrepancies, thus streamlining the dispute process.\n\nAs of now, Nimbus AI has 14 paying pilot customers and has achieved a monthly recurring revenue (MRR) of $18,000, with a notable growth rate of 22% month-over-month over the last four months. The average customer reportedly saves 6 hours per week per invoice auditor, and the company has experienced zero churn to date.\n\nOverall, the founders' relevant experience and the company's early traction in a sizable market contribute to a bullish outlook on Nimbus AI's potential. No red flags have been identified that would cause concern regarding the team's capability or the company's direction.",
+          "flagged_missing": "Company timeline: not disclosed"
+        },
+        {
+          "id": "tech_defensibility",
+          "title": "Technology & defensibility",
+          "required": false,
+          "content": "Nimbus AI's technology leverages a proprietary LLM (Large Language Model) pipeline to automate the extraction and reconciliation of freight invoices and contracts. This approach addresses a significant pain point in logistics finance, where invoice discrepancies can lead to substantial financial losses for shippers. The automation of this process not only reduces the time spent on invoice auditing—averaging 6 hours saved per week per auditor—but also minimizes errors that cost the industry an estimated $15 billion annually. \n\nThe competitive landscape includes companies like nuVizz and Denim, which rely on manual business process outsourcing (BPO), and Loadsure and FreightVerify, which focus on visibility rather than invoice auditing. Nimbus AI's unique solution positions it to capture a significant share of the $2.1 billion total addressable market (TAM) for logistics finance automation. \n\nAs Nimbus AI continues to grow its customer base—currently at 14 paying pilot customers with a 22% month-over-month growth rate—its data moat strengthens. The more invoices processed and discrepancies flagged, the better the model becomes at recognizing patterns and improving accuracy, creating a compounding advantage over competitors who do not utilize such advanced technology. This defensibility is further enhanced by the founders' relevant experience in logistics and machine learning, which supports the technical capability of the solution.",
+          "flagged_missing": null
+        },
+        {
+          "id": "market_sizing",
+          "title": "Market sizing",
+          "required": false,
+          "content": "TAM: $2.1B\nSAM: $400M\nSOM: \nassumptions: The TAM is based on the overall market for logistics finance automation, while the SAM reflects the segment of that market that Nimbus AI targets.",
+          "flagged_missing": "SOM and specific assumptions for market sizing are not disclosed."
+        },
+        {
+          "id": "competition",
+          "title": "Competition",
+          "required": false,
+          "content": "Nimbus AI operates in a competitive landscape characterized by several players focusing on logistics finance automation. Key competitors include:\n\n1. **nuVizz** - Differentiates itself by offering manual Business Process Outsourcing (BPO) services.\n2. **Denim** - Also focuses on manual BPO, similar to nuVizz.\n3. **Loadsure** - Concentrates on visibility within the logistics space rather than specifically on invoice auditing.\n4. **FreightVerify** - Like Loadsure, it emphasizes visibility over invoice auditing.\n\nThese competitors primarily utilize manual processes or focus on aspects of logistics that do not directly compete with Nimbus AI's automated invoice auditing solution. As Nimbus AI continues to grow and refine its technology, potential threats could emerge from companies that pivot towards automation or enhance their offerings to include invoice auditing capabilities, particularly those with strong funding or existing customer bases in logistics finance.",
+          "flagged_missing": null
+        },
+        {
+          "id": "financials",
+          "title": "Financials & round structure",
+          "required": false,
+          "content": "historical_P&L:   revenue: $18k MRR\n  growth: 22% month-over-month growth over the last 4 months\nprojected_P&L: \nround_size: \nrunway: \nnext_round_timing: ",
+          "flagged_missing": "Projected P&L, round size, runway, next-round timing"
+        },
+        {
+          "id": "cap_table",
+          "title": "Cap table",
+          "required": false,
+          "content": null,
+          "flagged_missing": "Cap table details such as pre/post-round ownership, dilution, and VSOP allocation are not disclosed."
+        },
+        {
+          "id": "dd_log",
+          "title": "Due diligence log",
+          "required": false,
+          "content": "checked:   commercial:     market: $2.1B TAM for logistics finance automation\n    problem: Freight invoices are inconsistent across hundreds of carrier formats, leading to overpayments or lengthy disputes.\n    solution: Nimbus automates the matching of carrier invoices and contracts using an LLM pipeline.\n  people:     founders:       -         name: Priya Shah\n        background: ex-Flexport, led invoice automation team\n      -         name: Sam Okafor\n        background: ex-Uber Freight, ML engineer\n  financial:     traction:       customers: 14 paying pilot customers\n      revenue: $18k MRR\n      growth: 22% month-over-month growth over the last 4 months\n      usage_metrics: Average customer saves 6 hours/week per invoice auditor\n      churn: 0\n  legal:     status: not disclosed\n  technical:     solution: Nimbus ingests and processes invoices and contracts, identifying discrepancies.\nopen:   legal: Pending review of legal compliance and contracts.\n  cap_table: not disclosed",
+          "flagged_missing": null
+        },
+        {
+          "id": "exit",
+          "title": "Exit perspective",
+          "required": false,
+          "content": "Nimbus AI operates in a $2.1 billion total addressable market (TAM) for logistics finance automation, addressing a critical pain point where freight invoice errors cost US shippers an estimated $15 billion annually. The company's unique solution leverages a large language model (LLM) pipeline to automate the extraction and auditing of freight invoices, significantly reducing the time finance teams spend on disputes. This efficiency could lead to substantial cost savings for potential acquirers, making Nimbus an attractive target for companies looking to enhance their logistics and finance capabilities.\n\nPlausible exit paths include acquisition by larger logistics or technology firms seeking to integrate advanced AI-driven solutions into their offerings. Given the urgency of the problem and the potential for significant operational savings, acquirers may be willing to pay a premium for Nimbus AI, especially as they look to differentiate themselves in a competitive market dominated by manual processes. The company's early traction, with 14 paying pilot customers and a 22% month-over-month growth rate, further supports its potential value in an acquisition scenario.",
+          "flagged_missing": null
+        }
+      ]
+    },
+    "sourceUrl": null,
+    "createdAt": "2026-07-19T11:23:28.909Z",
+    "updatedAt": "2026-07-19T11:23:28.909Z"
+  },
+  {
+    "id": "34637a47-ec43-4c0e-b94d-cdfc0102d441",
+    "source": "inbound",
+    "channel": null,
+    "companyName": "Loomwork",
+    "founderId": "maya@demo.com",
+    "ownerEmail": "maya@demo.com",
+    "status": "screened",
+    "extracted": {
+      "snapshot": {
+        "market": "1.5M freelance designers in the US; broader $8B creative-ops tooling market.",
+        "problem": "Freelancers lose ~8 hours/week parsing vague feedback across email, Slack, and Figma comments. Miscommunication is the #1 cause of scope creep and unpaid revisions.",
+        "urgency": null,
+        "solution": "Loomwork ingests feedback from all channels, clusters it by deliverable, flags contradictions ('make it bigger' vs 'keep it minimal'), and drafts clarifying replies."
+      },
+      "team": {
+        "founders": [
+          {
+            "name": "Maya Chen",
+            "background": "ex-design lead at a Series B startup. First-time founder."
+          }
+        ],
+        "single_founder": true
+      },
+      "market_sizing": {
+        "tam": null,
+        "sam": null,
+        "som": null,
+        "assumptions": null
+      },
+      "competition": [],
+      "traction": {
+        "customers": "40 beta users",
+        "revenue": "no revenue yet",
+        "growth": "launched 3 weeks ago",
+        "usage_metrics": "60% weekly active"
+      },
+      "financials_mentioned": false,
+      "cap_table_mentioned": false,
+      "claims": [
+        {
+          "id": "1",
+          "category": "traction",
+          "text": "40 beta users"
+        },
+        {
+          "id": "2",
+          "category": "traction",
+          "text": "no revenue yet"
+        },
+        {
+          "id": "3",
+          "category": "traction",
+          "text": "launched 3 weeks ago"
+        },
+        {
+          "id": "4",
+          "category": "traction",
+          "text": "60% weekly active"
+        },
+        {
+          "id": "5",
+          "category": "market_size",
+          "text": "1.5M freelance designers in the US; broader $8B creative-ops tooling market."
+        }
+      ]
+    },
+    "trustScores": [
+      {
+        "id": "1",
+        "category": "traction",
+        "text": "40 beta users",
+        "confidence": "unverifiable",
+        "evidence": "no external source found",
+        "sourceUrl": null
+      },
+      {
+        "id": "2",
+        "category": "traction",
+        "text": "no revenue yet",
+        "confidence": "unverifiable",
+        "evidence": "no external source found",
+        "sourceUrl": null
+      },
+      {
+        "id": "3",
+        "category": "traction",
+        "text": "launched 3 weeks ago",
+        "confidence": "unverifiable",
+        "evidence": "no external source found",
+        "sourceUrl": null
+      },
+      {
+        "id": "4",
+        "category": "traction",
+        "text": "60% weekly active",
+        "confidence": "unverifiable",
+        "evidence": "no external source found",
+        "sourceUrl": null
+      },
+      {
+        "id": "5",
+        "category": "market_size",
+        "text": "1.5M freelance designers in the US; broader $8B creative-ops tooling market.",
+        "confidence": "unverifiable",
+        "evidence": "no external source found",
+        "sourceUrl": null
+      }
+    ],
+    "axisScores": {
+      "founder": {
+        "rating": "neutral",
+        "trend": "stable",
+        "rationale": "The founder has relevant experience as a design lead but is a first-time founder with a low confidence score; potential exists but is unproven.",
+        "confidence": 60
+      },
+      "market": {
+        "rating": "bullish",
+        "trend": "improving",
+        "rationale": "The market for creative-ops tooling is substantial at $8B, with a clear target audience of 1.5M freelance designers, indicating strong demand.",
+        "confidence": 75
+      },
+      "idea_vs_market": {
+        "rating": "bullish",
+        "trend": "improving",
+        "rationale": "The solution addresses a significant pain point for freelancers, with a unique approach to managing feedback that could reduce miscommunication.",
+        "confidence": 70
+      }
+    },
+    "founderScoreSnapshot": {
+      "score": 61,
+      "confidence": 37,
+      "basedOn": [
+        "application_quality"
+      ],
+      "coldStart": true,
+      "githubSignal": null,
+      "updatedAt": "2026-07-19T11:25:31.706Z"
+    },
+    "memo": null,
+    "sourceUrl": null,
+    "createdAt": "2026-07-19T11:25:33.921Z",
+    "updatedAt": "2026-07-19T11:25:33.921Z"
+  }
+]

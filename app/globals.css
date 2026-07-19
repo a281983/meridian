@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Meridian palette — space-navy canvas, violet→cyan gradient */
+  --bg: #060913;
+  --bg-2: #0a0f1e;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-2: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --text: #e7ecf3;
+  --muted: #9aa6b8;
+  --faint: #6b7688;
+
+  --violet: #7c5cff;
+  --cyan: #22d3ee;
+
+  --pos: #34d399; /* bullish */
+  --neu: #fbbf24; /* neutral */
+  --neg: #fb7185; /* bear */
+
+  --grad: linear-gradient(135deg, #7c5cff 0%, #22d3ee 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-feature-settings: "ss01", "cv01";
+  overflow-x: hidden;
+}
+
+/* Ambient background glows — the "futuristic" canvas */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--bg);
+}
+.aurora::before,
+.aurora::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+}
+.aurora::before {
+  width: 55vw;
+  height: 55vw;
+  left: -10vw;
+  top: -15vw;
+  background: radial-gradient(circle, #7c5cff 0%, transparent 70%);
+  animation: drift1 18s ease-in-out infinite alternate;
+}
+.aurora::after {
+  width: 50vw;
+  height: 50vw;
+  right: -10vw;
+  bottom: -15vw;
+  background: radial-gradient(circle, #22d3ee 0%, transparent 70%);
+  animation: drift2 22s ease-in-out infinite alternate;
+}
+@keyframes drift1 {
+  to { transform: translate(8vw, 6vw) scale(1.1); }
+}
+@keyframes drift2 {
+  to { transform: translate(-6vw, -5vw) scale(1.15); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora::before, .aurora::after { animation: none; }
+}
+
+/* Glassmorphism surface */
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.glass-hover {
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+.glass-hover:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-2);
+  transform: translateY(-2px);
+}
+
+.gradient-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  background: var(--grad);
+  color: #060913;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: filter 0.2s ease, transform 0.1s ease;
+}
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-ghost {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 12px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.btn-ghost:hover { border-color: var(--border-strong); background: var(--surface-2); }

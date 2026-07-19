@@ -1,0 +1,29 @@
+# Outbound sourcing channels — inbound (/apply) and outbound (this file) converge
+# into the same Screening step, per the brief. Add/remove channels here, no code change.
+
+channels:
+  - id: github
+    label: "GitHub"
+    enabled: true
+    description: "Search repos/users matching thesis sector keywords — recent activity, stars, followers."
+    query_keywords: ["AI agent", "LLM", "AI developer tool"]
+    # Bias toward emerging founders: early traction, not yet famous, still active.
+    stars_min: 25
+    stars_max: 3000
+    pushed_after: "2026-01-01"
+
+  - id: hackernews
+    label: "Hacker News (Show HN)"
+    enabled: true
+    description: "Algolia HN Search API — 'Show HN' launch posts, points, comment signal."
+    query_keywords: ["Show HN", "AI"]
+
+  - id: producthunt
+    label: "Product Hunt"
+    enabled: false # requires an OAuth token; leave disabled by default so the app runs with zero extra setup
+    description: "Recent launches in target sectors."
+
+  - id: arxiv
+    label: "arXiv"
+    enabled: false # candidate for future pass — research/IP credibility signal
+    description: "Recent papers by prospective technical founders in target sectors."

@@ -1,0 +1,29 @@
+# Thesis Engine — edit this file to re-target the fund. No code changes needed.
+# Every candidate is filtered and scored through this lens.
+
+sectors:
+  - "AI infrastructure & tooling"
+  - "Developer tools"
+  - "AI-native applications"
+
+stage:
+  - "pre-seed"
+  - "seed"
+
+geography:
+  - "Global (remote-friendly)"
+
+check_size:
+  min_usd: 50000
+  max_usd: 150000
+  target_usd: 100000
+
+ownership_target_pct: 5
+
+risk_appetite: "high"  # low | medium | high — high tolerates more unproven, pre-track-record founders
+
+notes: >
+  Default demo thesis: early (pre-seed/seed) AI-native builders, anywhere, no
+  requirement for existing traction. Favors technical founders shipping fast
+  over pedigree. Edit any field above to change what the system prioritizes —
+  the Thesis Engine reads this file directly, nothing is hardcoded.

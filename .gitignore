@@ -1,0 +1,7 @@
+node_modules
+.next
+.env
+.env.local
+*.log
+.claude/
+Challenge 2 - VC Brain.pdf
