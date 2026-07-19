@@ -10,12 +10,38 @@ export default function ApplyForm({ applicantName, applicantEmail }) {
   async function onSubmit(e) {
     e.preventDefault();
     setError(null);
+
+    const form = new FormData(e.target);
+    // Vercel serverless functions reject request bodies over ~4.5 MB, so catch
+    // an oversized deck client-side with a clear message instead of letting the
+    // platform return a non-JSON "Request Entity Too Large" the form can't parse.
+    const deck = form.get("deck");
+    const MAX_BYTES = 4.4 * 1024 * 1024;
+    if (deck && deck.size > MAX_BYTES) {
+      setError(
+        `That deck is ${(deck.size / 1048576).toFixed(1)} MB — uploads are capped at ~4.5 MB. Please compress the PDF or export a lighter version and try again.`
+      );
+      return;
+    }
+
     setLoading(true);
     try {
-      const form = new FormData(e.target);
       const res = await fetch("/api/apply", { method: "POST", body: form });
+      if (!res.ok) {
+        let msg = `Something went wrong (${res.status}).`;
+        if (res.status === 413) {
+          msg = "That deck is too large — uploads are capped at ~4.5 MB. Please compress the PDF and try again.";
+        } else {
+          try {
+            const d = await res.json();
+            if (d?.error) msg = d.error;
+          } catch {
+            /* non-JSON error response — keep the generic message */
+          }
+        }
+        throw new Error(msg);
+      }
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Something went wrong");
       router.push(`/opportunity/${data.opportunity.id}`);
     } catch (err) {
       setError(err.message);
